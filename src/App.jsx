@@ -39,12 +39,14 @@ export default function App() {
     }
   }
 
-  /* backHandler for */
+  /* for handling the backspace handler */
   const backHandler = function(e) {
     const sliceString = outputField.slice(0, outputField.length - 1);
     setOutputField(sliceString);
   }
 
+
+  /* for handling the percent button */
   const percentHandler = function(e) {
     let newField = outputField.concat('/100');
     try {
@@ -55,6 +57,7 @@ export default function App() {
     }
   }
 
+  /* for handling negation key (+/-) */
   const negativeHandler = function(e) {
     try {
       let res = eval(outputField);
