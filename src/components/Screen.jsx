@@ -1,5 +1,5 @@
 
-
+/* This file contains Screen component */
 
 export default function Screen({ sref, value }) {
     return (

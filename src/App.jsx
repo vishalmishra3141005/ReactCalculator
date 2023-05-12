@@ -6,23 +6,29 @@ import Button from "./components/Button";
 
 import { useRef, useState } from "react";
 
+
+/* Main container of the app */ 
 export default function App() {
   
   const [outputField, setOutputField] = useState('');
-  const screenRef = useRef();
+  const screenRef = useRef(); // to get reference of the dom
 
-  const OutputFieldHandler = function() {
+  /* this handler to set focus at end when enter the numbers and in the screen */
+  const focusHandler = function() {
     let end = screenRef.current.value.length;
     screenRef.current.setSelectionRange(end, end);
     
     screenRef.current.focus();
   }
 
+  /* button click handler */
+
   const clickHandler = function(ch) {
     setOutputField(outputField.concat(ch));
-    OutputFieldHandler();
+    focusHandler();
   }
 
+  /* equals handler */
 
   const equalHandler = function(e) {
     try {
@@ -33,6 +39,7 @@ export default function App() {
     }
   }
 
+  /* backHandler for */
   const backHandler = function(e) {
     const sliceString = outputField.slice(0, outputField.length - 1);
     setOutputField(sliceString);
